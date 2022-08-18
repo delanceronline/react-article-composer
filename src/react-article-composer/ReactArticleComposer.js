@@ -82,6 +82,7 @@ class ReactArticleComposer extends React.Component {
 
     this.hasTitle = true;
     this.titlePlaceholder = 'Enter title here';
+    this.defaultTextParagraphPlaceholder = 'Enter text here';
     this.isSingleFile = true;
 
     this.onTitleUpdate = this.onTitleUpdate.bind(this);
@@ -123,6 +124,9 @@ class ReactArticleComposer extends React.Component {
   {
     if(this.props.hasOwnProperty('isSingleFile'))
       this.isSingleFile = this.props.isSingleFile;
+
+    if(this.props.hasOwnProperty('textParagraphPlaceHolder'))
+      this.defaultTextParagraphPlaceholder = this.props.textParagraphPlaceHolder;    
 
     if(this.props.defaultContent)
     {
@@ -204,7 +208,8 @@ class ReactArticleComposer extends React.Component {
     let paragraphs = [...this.state.paragraphs];
     let newItem = {
       type: 1, 
-      content: ''
+      content: '',
+      placeholder: this.defaultTextParagraphPlaceholder
     };
     paragraphs.splice(index + 1, 0, newItem);
 
