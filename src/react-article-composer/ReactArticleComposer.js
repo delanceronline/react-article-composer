@@ -180,7 +180,7 @@ class ReactArticleComposer extends React.Component {
 
   onTitleUpdate(textValue)
   {
-    if(this.props.onTitleUpdate)
+    if(this.props.hasOwnProperty('onTitleUpdate') && typeof this.props.onTitleUpdate === 'function')
       this.props.onTitleUpdate(this.state.title, textValue);
 
     this.setState({title: textValue});    
@@ -221,7 +221,9 @@ class ReactArticleComposer extends React.Component {
       type: 2, 
       file: null, 
       base64: null,
-      defaultImages: []
+      defaultImages: [],
+      fileDataSet: [],
+      base64DataSet: []
     };
     paragraphs.splice(index + 1, 0, newItem);
 
@@ -347,9 +349,14 @@ class ReactArticleComposer extends React.Component {
     let paragraphs = [...this.state.paragraphs];
     let current = {...paragraphs[paragraphIndex]};
 
-    current.defaultImages.splice(imageIndex, 1);
-    current.fileDataSet.splice(imageIndex, 1);
-    current.base64DataSet.splice(imageIndex, 1);
+    if(current.defaultImages.length > 0)
+      current.defaultImages.splice(imageIndex, 1);
+
+    if(current.fileDataSet.length > 0)
+      current.fileDataSet.splice(imageIndex, 1);
+
+    if(current.base64DataSet.length > 0)
+      current.base64DataSet.splice(imageIndex, 1);
 
     this.setState({paragraphs: paragraphs});
   }
