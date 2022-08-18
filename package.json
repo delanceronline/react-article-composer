@@ -1,0 +1,38 @@
+{
+  "name": "react-article-composer",
+  "version": "1.1.8",
+  "description": "A simple UI composer for article composition with text and image blocks.",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -rf dist && NODE_ENV=production babel src --out-dir dist --copy-files"
+  },
+  "keywords": [
+    "reactjs",
+    "WYSIWYG",
+    "editor",
+    "chakra-ui"
+  ],
+  "author": "Vanilla298",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.18.10",
+    "@babel/core": "^7.18.10",
+    "@babel/preset-env": "^7.18.10",
+    "@babel/preset-react": "^7.18.6"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "@chakra-ui/icons": "^2.0.8",
+    "@chakra-ui/react": "^2.2.8",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-flip-move": "^3.0.4",
+    "react-icons": "^4.4.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/delanceronline/react-article-composer"
+  }
+}
