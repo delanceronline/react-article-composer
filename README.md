@@ -55,6 +55,8 @@ SmartyPants converts ASCII punctuation characters into "smart" typographic punct
 |`editor`          |a reference to the component, initialized with `React.createRef()`          |       
 |`defaultContent` |preset content object being loaded for initialization, for example,           `{hasTitle: true, paragraphs:[{"type":1,"content":"","placeholder":"Please enter texts"},{"type":2}]}`, it initializes the component with 2 paragraphs, `type` 1 representing a text paragraph with a specific placeholder text by setting `placeholder` property and `type` 2 representing an image paragraph, also with the title input available by setting `hasTitle` to `true`. For an image paragraph, you can preset an image resource by setting an `image` property like this: `{"type":2, image:"flower.png"}`, the base path can be set in `imageURL` attribute below.|
 |`imageURL`          |a URL for loading pre-defined images as specified in `defaultConent` attribute.|
+|`isSingleFile`|represents whether the file upload widget only supports single file selection.|
+|`textParagraphPlaceHolder`|sets default placeholder text for all text paragraphs.|
 |`onTitleUpdate`|an event handler for the title was updated, with format: `(originalValue, newValue)=>{}`.|
 |`onTextParagraphUpdate`|an event handler for a paragraph was updated, with format: `(previousParagraphs, newParagraphs, index)=>{}`, where `index` is the paragraph index concerning the update. For example, you can get the previous and current values of the paragraph by accessing `previousParagraphs[index]` and `newParagraphs[index]` respectively.|
 |`onTextParagraphAdd`|an event handler for a new text paragraph was added, with format: `(previousParagraphs, newParagraphs, index)=>{}`, where the new text paragraph is `newParagraphs[index]`.|
@@ -63,7 +65,6 @@ SmartyPants converts ASCII punctuation characters into "smart" typographic punct
 |`onImageParagraphDelete`|similar to `onTextParagraphDelete`, an event handler for an image paragraph was deleted, with format: `(previousParagraphs, newParagraphs, index)=>{}`, where the deleted image paragraph is `previousParagraphs[index]`.|
 |`onImageAdd`|an event handler for an image was added in a file upload widget in a specific image paragraph, with format: `(previousParagraphs, newParagraphs, index)=>{}`, where the related paragraph containing the file upload widget is either `newParagraphs[index]`.|
 |`onImageDelete`|an event handler for an image was removed from a file upload widget in a specific image paragraph, with format: `(previousParagraphs, newParagraphs, imageIndex, paragraphIndex)=>{}`, where the deleted image is the `imageIndex` th image of `previousParagraphs[paragraphIndex]`.|
-|`isSingleFile`|Represents whether the file upload widget only supports single file selection.|
 
 ## Functions
 |  |  |
