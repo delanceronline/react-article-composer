@@ -358,6 +358,9 @@ class ReactArticleComposer extends React.Component {
     if(current.base64DataSet.length > 0)
       current.base64DataSet.splice(imageIndex, 1);
 
+    if(this.props.hasOwnProperty('onImageDelete') && typeof this.props.onImageDelete === 'function')
+      this.props.onImageDelete(this.state.paragraphs, paragraphs, imageIndex, paragraphIndex);
+
     this.setState({paragraphs: paragraphs});
   }
 
@@ -446,9 +449,6 @@ class ReactArticleComposer extends React.Component {
                     onDelete={(files, pictures, removeIndex)=>{
 
                       this.onDeleteImage(index, removeIndex);
-
-                      if(this.props.hasOwnProperty('onImageDelete') && typeof this.props.onImageDelete === 'function')
-                        this.props.onImageDelete(files, pictures, removeIndex);
 
                     }}
                     imgExtension={['.jpeg', '.jpg', '.png']}
