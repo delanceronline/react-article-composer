@@ -23,13 +23,13 @@ Click here for live [Demo](https://2809p1.csb.app/).
 Place a `ReactArticleComposer` tag in the position which shows the component for the usage:
 
     <ReactArticleComposer 
-      editor={this.editor} 
+      editor={editorRef} 
       defaultContent={
-          {hasTitle: false,
-          paragraphs:[
-            {"type":1,"content":"", "placeholder":"Please enter texts"},
-          ]}
-      }
+        {hasTitle: false,
+        paragraphs:[
+          {"type":1,"content":"", "placeholder":"Please enter texts"},
+        ]}
+    }
       imageURL={'a URL for loading default images'} 
       onTitleUpdate={(originalValue, newValue)=>{}} 
       onTextParagraphUpdate={(previousParagraphs, newParagraphs, index)=>{}}
@@ -50,9 +50,9 @@ SmartyPants converts ASCII punctuation characters into "smart" typographic punct
 
 
 
-|                |Description                                                      |
+|                |Description                                          |
 |----------------|-------------------------------------------------------------|
-|`editor`            |a reference to the component, initialized with `React.createRef()`          |       
+|`editor`          |a reference to the component, initialized with `React.createRef()`          |       
 |`defaultContent` |preset content object being loaded for initialization, for example,           `{hasTitle: true, paragraphs:[{"type":1,"content":"","placeholder":"Please enter texts"},{"type":2}]}`, it initializes the component with 2 paragraphs, `type` 1 representing a text paragraph with a specific placeholder text by setting `placeholder` property and `type` 2 representing an image paragraph, also with the title input available by setting `hasTitle` to `true`. For an image paragraph, you can preset an image resource by setting an `image` property like this: `{"type":2, image:"flower.png"}`, the base path can be set in `imageURL` attribute below.|
 |`imageURL`          |a URL for loading pre-defined images as specified in `defaultConent` attribute.|
 |`onTitleUpdate`|an event handler for the title was updated, with format: `(originalValue, newValue)=>{}`.|
@@ -64,4 +64,12 @@ SmartyPants converts ASCII punctuation characters into "smart" typographic punct
 |`onImageAdd`|an event handler for an image was added in a file upload widget in a specific image paragraph, with format: `(previousParagraphs, newParagraphs, index)=>{}`, where the related paragraph containing the file upload widget is either `newParagraphs[index]`.|
 |`onImageDelete`|an event handler for an image was removed from a file upload widget in a specific image paragraph, with format: `(previousParagraphs, newParagraphs, imageIndex, paragraphIndex)=>{}`, where the deleted image is the `imageIndex` th image of `previousParagraphs[paragraphIndex]`.|
 |`isSingleFile`|Represents whether the file upload widget only supports single file selection.|
+
+## Functions
+|  |  |
+|--|--|
+| `getComposition` | get the composition object of the component, the object structure much similar to `defaultContent`. Usually, it can be called like this: `editorRef.current.getComposition()`, where `editorRef` is `React.createRef()` initialized. For an image paragraph in the single file selection mode, if a file is selected, there will be `file` (standard web File object), `base64` (a string for embedding an image) and `defaultImages` properties. While in the multiple file selection mode, there will be `fileDataSet` and `base64DataSet` properties which are the sets to hold multiple `File` objects and `base64` strings, with `file` and `base64` properties being `null`. Try out the live [Demo](https://2809p1.csb.app/).|
+| `setEnabled` | enable the component. |
+| `setDisabled` | disable the component. |
+
 
