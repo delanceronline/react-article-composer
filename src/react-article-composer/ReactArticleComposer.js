@@ -153,7 +153,7 @@ class ReactArticleComposer extends React.Component {
           else if(paragraph.type == 2)
           {
             if(paragraph.image)
-              paragraphs.push({type: 2, image: paragraph.image, file: null, base64: null});
+              paragraphs.push({type: 2, image: paragraph.image, file: null, base64: null, defaultImages: []});
             else
               paragraphs.push({type: 2, file: null, base64: null, defaultImages: []});
           }
