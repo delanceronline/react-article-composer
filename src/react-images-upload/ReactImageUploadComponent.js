@@ -191,7 +191,12 @@ class ReactImageUploadComponent extends React.Component {
       return <img src={UploadIcon} className="uploadIcon" alt="Upload Icon" />;
     }
     else if(this.props.withIcon && this.props.hasOwnProperty('uploadIconURL')){
-      return <img src={this.props.uploadIconURL} className="uploadIcon" alt="Upload Icon" />;
+      
+      if(this.props.uploadIconURL == '')
+        return <img src={UploadIcon} className="uploadIcon" alt="Upload Icon" />;
+      else
+        return <img src={this.props.uploadIconURL} className="uploadIcon" alt="Upload Icon" />;
+           
     }
   }
 

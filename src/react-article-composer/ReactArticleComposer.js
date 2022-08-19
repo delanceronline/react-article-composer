@@ -84,6 +84,7 @@ class ReactArticleComposer extends React.Component {
     this.titlePlaceholder = 'Enter title here';
     this.defaultTextParagraphPlaceholder = 'Enter text here';
     this.isSingleFile = true;
+    this.uploadIconURL = '';
 
     this.onTitleUpdate = this.onTitleUpdate.bind(this);
     this.onParagraphUpdate = this.onParagraphUpdate.bind(this);
@@ -127,6 +128,9 @@ class ReactArticleComposer extends React.Component {
 
     if(this.props.hasOwnProperty('textParagraphPlaceHolder'))
       this.defaultTextParagraphPlaceholder = this.props.textParagraphPlaceHolder;    
+
+    if(this.props.hasOwnProperty('uploadIconURL'))
+      this.uploadIconURL = this.props.uploadIconURL;
 
     if(this.props.defaultContent)
     {
@@ -463,6 +467,7 @@ class ReactArticleComposer extends React.Component {
                     buttonText={'Choose your image(s)'}
                     defaultImages={paragraph.defaultImages}
                     isDisabled={!this.state.isEnabled}
+                    uploadIconURL={this.uploadIconURL}
                   />
                   }
 
