@@ -56,6 +56,7 @@ SmartyPants converts ASCII punctuation characters into "smart" typographic punct
 |`defaultContent` |preset content object being loaded for initialization, for example,           `{hasTitle: true, paragraphs:[{"type":1,"content":"","placeholder":"Please enter texts"},{"type":2}]}`, it initializes the component with 2 paragraphs, `type` 1 representing a text paragraph with a specific placeholder text by setting `placeholder` property and `type` 2 representing an image paragraph, also with the title input available by setting `hasTitle` to `true`. For an image paragraph, you can preset an image resource by setting an `image` property like this: `{"type":2, image:"flower.png"}`, the base path can be set in `imageURL` attribute below.|
 |`imageURL`          |a URL for loading pre-defined images as specified in `defaultConent` attribute.|
 |`isSingleFile`|represents whether the file upload widget only supports single file selection.|
+|`uploadIconURL`|sets the URL of the upload icon in file upload widget.|
 |`textParagraphPlaceHolder`|sets default placeholder text for all text paragraphs.|
 |`onTitleUpdate`|an event handler for the title was updated, with format: `(originalValue, newValue)=>{}`.|
 |`onTextParagraphUpdate`|an event handler for a paragraph was updated, with format: `(previousParagraphs, newParagraphs, index)=>{}`, where `index` is the paragraph index concerning the update. For example, you can get the previous and current values of the paragraph by accessing `previousParagraphs[index]` and `newParagraphs[index]` respectively.|
@@ -72,5 +73,3 @@ SmartyPants converts ASCII punctuation characters into "smart" typographic punct
 | `getComposition` | get the composition object of the component, the object structure much similar to `defaultContent`. Usually, it can be called like this: `editorRef.current.getComposition()`, where `editorRef` is `React.createRef()` initialized. For an image paragraph in the single file selection mode, if a file is selected, there will be `file` (standard web File object), `base64` (a string for embedding an image) and `defaultImages` properties. While in the multiple file selection mode, there will be `fileDataSet` and `base64DataSet` properties which are the sets to hold multiple `File` objects and `base64` strings, with `file` and `base64` properties being `null`. Try out the live [Demo](https://2809p1.csb.app/).|
 | `setEnabled` | enable the component. |
 | `setDisabled` | disable the component. |
-
-
